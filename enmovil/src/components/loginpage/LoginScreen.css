@@ -1,0 +1,120 @@
+/* LoginScreen.css */
+
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+  }
+  
+  body {
+    padding: 0;
+    margin: 0;
+    background-color: #060826;
+    color: white;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .left {
+    display: flex;
+    animation: left 1s both 1s;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .right {
+    flex: 1;
+    transition: 1s;
+    background-color: #d93280;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .header {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 400;
+    animation: move 0.4s both 2s;
+  }
+  
+  .subheader {
+    color: #fff;
+    opacity: 0.4;
+    font-size: 1rem;
+    font-weight: normal;
+    animation: move 0.4s both 2.2s;
+  }
+  
+  .input-field {
+    height: 46px;
+    padding: 0 1rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    margin-top: 1.25rem;
+    transition: 0.2s;
+    font-family: 'Rubik', sans-serif;
+    animation: move 0.4s both;
+  }
+  
+  .input-field:focus {
+    border-color: #d93280;
+  }
+  
+  .forgot-text {
+    text-align: right;
+    animation: move 0.4s both 3.8s;
+  }
+  
+  .forgot-text a {
+    color: #fff;
+    font-size: 0.875rem;
+  }
+  
+  .button {
+    padding: 0.75rem 0.625rem;
+    border: 0;
+    background: linear-gradient(to right, #d93280 0%, #44118c 100%);
+    border-radius: 0.25rem;
+    margin-top: 0.625rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: 'Rubik', sans-serif;
+    animation: move 0.4s both 3s;
+  }
+  
+  @keyframes move {
+    from {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-40px);
+    }
+    to {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes left {
+    from {
+      opacity: 0;
+      width: 0%;
+    }
+    to {
+      opacity: 1;
+      width:50%;
+      padding: 7rem;
+    }
+  }
+  
