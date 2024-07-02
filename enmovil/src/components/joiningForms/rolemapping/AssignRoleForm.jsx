@@ -213,12 +213,14 @@ const AssignRolesForm = () => {
       return;
     }
     try {
-      console.log('Submitting to URL:', url);
-      console.log('Form data:', formData);
-      const response = await axios.post(url, formData, {
+      // console.log('Submitting to URL:', url);
+      // console.log('Form data:', JSON.stringify(formData));
+      const response = await axios.post(url,formData, {
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
+        maxContentLength:Infinity,
+        maxContentLength:Infinity,
         //timeout: 20000 
       });
       if (response.data.status === 'success') {
