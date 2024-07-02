@@ -50,13 +50,6 @@ const Form = () => {
                         'Content-Type': 'application/json'
                     }
                 });
-                
-                // for (let key in response.data.details) {
-                //     if (response.data.details[key].success === false) {
-                //         setSnackbarSeverity('error');
-                //         setSnackbarMessage(`Error uploading data, ${response.data.details[key].message}`);
-                //     }
-                // }
                 console.log('Server Response:', response.data);
                 setSnackbarSeverity('success');
                 setSnackbarMessage(`${response.data.successCount} added successfully out of ${response.data.successCount+response.data.failureCount} `);
