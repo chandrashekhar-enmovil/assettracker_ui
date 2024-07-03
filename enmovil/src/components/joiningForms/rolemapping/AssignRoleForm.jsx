@@ -43,11 +43,27 @@ const AssignRolesForm = () => {
           break;
         }
       }
+      if(formData.yearsOfExperience!='0'){
+        let variant=formData.experience[0];
+        for(let key in variant)
+        {
+          
+            if(variant[key]==='')
+            {
+              valid=false
+              //console.log(key);
+              setSnackbarSeverity('error');
+              setSnackbarMessage(`Please fill out the ${key.replace(/([A-Z])/g, ' $1').toLowerCase()} field.`);
+              setSnackbarOpen(true);
+              return valid
+            }
+        }
+      }
       return valid;
     };
 
     setIsFormValid(validateForm());
-  }, [formData, errors]);
+  }, [formData, errors,formData.yearsOfExperience]);
 
   const handleChange = (field, value) => {
     updateFormData(field, value);
