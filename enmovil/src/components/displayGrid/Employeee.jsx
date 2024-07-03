@@ -58,14 +58,6 @@ function Employeee() {
 
     const columnDefs = [
         {
-            headerName: "Actions",
-            field: "action",
-            cellRenderer: CustomButtonComponent,
-            cellStyle: { borderRightColor: '#e2e2e2' },
-            width: 160,
-            sortable: false,
-        },
-        {
             headerName: "EMP ID",
             field: "ID",
             pinned: 'left',
@@ -187,6 +179,14 @@ function Employeee() {
                 buttons: ['apply', 'reset'],
                 closeOnApply: true,
             },
+        },
+        {
+            headerName: "Actions",
+            field: "action",
+            cellRenderer: CustomButtonComponent,
+            cellStyle: { borderRightColor: '#e2e2e2' },
+            width: 160,
+            sortable: false,
         },
     ];
 
