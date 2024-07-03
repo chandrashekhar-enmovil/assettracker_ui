@@ -21,7 +21,7 @@ const Modal = ({ show, onClose }) => {
         if (dropzoneRef.current) {
             dropzoneRef.current.classList.add('dragging');
         }
-    };
+    };   
     const handleDragLeave = () => {
         if (dropzoneRef.current) {
             dropzoneRef.current.classList.remove('dragging');
