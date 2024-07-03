@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { BrowserRouter as Router, Link, useNavigate } from 'react-router-dom';
 import { Button, Grid, Typography, Snackbar, Alert } from '@mui/material';
 import axios from 'axios';
+import ManinHeader from './formModal/MainHeader';
 
 const Form = () => {
     const navigate = useNavigate();
@@ -112,9 +113,10 @@ const Form = () => {
                             onChange={changeShipmentFileHandler}
                             required
                         />
-                        <Button variant="outlined" onClick={handleButtonClick}>
+                        <ManinHeader/>
+                        {/* <Button variant="outlined" onClick={handleButtonClick}>
                             Bulk Upload
-                        </Button>
+                        </Button> */}
                     </Grid>
                     <Grid item>
                         {file && (
