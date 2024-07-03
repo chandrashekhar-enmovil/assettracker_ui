@@ -32,10 +32,12 @@
     align-items: center;
     justify-content: center;
     height: 80px;
-    border: 2px dashed #cccccc;
+    border: 2px dotted #cccccc;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 20px;
+    margin-right: 10px;
+    padding: 20px;
     position: relative;
   }
   

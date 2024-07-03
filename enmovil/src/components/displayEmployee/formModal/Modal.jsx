@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Button, Grid, Typography, Snackbar, Alert } from '@mui/material';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import axios from 'axios';
 import './Modal.css';
 
@@ -68,7 +69,7 @@ const Modal = ({ show, onClose }) => {
                         'Content-Type': 'application/json'
                     }
                 });
-                console.log(csvData);
+                console.log(csvData,response);
                 if(response.data.status==='failure'){
                   setSnackbarSeverity('success');
                   setSnackbarMessage(`${response.data.message}`);
@@ -97,7 +98,7 @@ const Modal = ({ show, onClose }) => {
             <div className="modal-content">
                 <button className="close-button" onClick={onClose}>X</button>
                 <Grid container spacing={2} direction="column" justifyContent="center" alignItems="center" style={{ padding: 20 }}>
-                    <Grid container item spacing={2} justifyContent="space-between">
+                    <Grid container item spacing={2} justifyContent="space-between" style={{marginRight:10}}>
                         <Grid item>
                             <div
                                 ref={dropzoneRef}
@@ -107,7 +108,8 @@ const Modal = ({ show, onClose }) => {
                                 onDragLeave={handleDragLeave}
                             >
                                 <input type="file" onChange={handleFileSelect} />
-                                <p>Drag & drop a file here, or click to select a file</p>
+                                <CloudUploadIcon style={{ fontSize: 40, marginBottom: 10,marginRight:10 }} />
+                                <p style={{ marginRight:10 }}>Drag & drop a file here, or click to select a file</p>
                             </div>
                             {file && (
                                 <div className="files-list">

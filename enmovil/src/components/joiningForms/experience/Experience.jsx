@@ -110,14 +110,14 @@ const Experience = () => {
               label="Supervisor Name"
               variant="standard"
               value={exp.supervisorName}
-              onChange={(e) => handleUpdateExperience(idx, 'supervisorName', e.target.value)}
+              onChange={(e) => handleUpdateExperience(idx, 'supervisorName', e.target.value||'')}
               style={styles.textField}
             />
             <TextField
               label="Contact Information"
               variant="standard"
               value={exp.supervisorInfo}
-              onChange={(e) => handleUpdateExperience(idx, 'supervisorInfo', e.target.value)}
+              onChange={(e) => handleUpdateExperience(idx, 'supervisorInfo', e.target.value||'')}
               style={styles.textField}
             />
             <TouchableOpacity onPress={() => handleRemoveFields(idx)}>
