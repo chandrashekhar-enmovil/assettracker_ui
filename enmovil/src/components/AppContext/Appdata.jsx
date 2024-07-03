@@ -70,7 +70,6 @@ const Appdata = () => {
         empId: '',
         yearsOfExperience: '',
       };
-    
       const initialErrors = {
         firstName: false,
         address: false,

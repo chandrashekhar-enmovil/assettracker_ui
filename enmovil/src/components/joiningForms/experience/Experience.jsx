@@ -61,7 +61,7 @@ const Experience = () => {
       <FormControl variant="outlined" fullWidth style={styles.textField50}>
             <InputLabel>Total experience in Years</InputLabel>
             <Select
-              value={formData.yearsOfExperience || ''}
+              value={formData.yearsOfExperience || "0-1" }
               onChange={(e) =>  updateFormData('yearsOfExperience', e.target.value)}
               label="Total experience in Years"
               // InputLabelProps={{ shrink: false }}
