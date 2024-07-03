@@ -151,8 +151,6 @@ import { Button, Grid } from '@mui/material';
 import ManinHeader from './formModal/MainHeader';
 
 const Form = () => {
-    const navigate = useNavigate();
-
     return (
         <>
             <Grid container spacing={2} direction="column" justifyContent="center" alignItems="center" style={{ padding: 20 }}>
