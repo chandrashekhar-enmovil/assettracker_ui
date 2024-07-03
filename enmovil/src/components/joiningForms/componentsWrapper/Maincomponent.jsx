@@ -11,7 +11,6 @@ import axios from 'axios';
 import Appdata from '../../AppContext/Appdata';
 const Maincomponent = () => {
   const { formData,setFormData,errors,setErrors} = useContext(AppContext);
-  const { errorss, setErrorss, formDatas, setFormDatas}=Appdata();
   var {id}=useParams();
   if (id && id.startsWith(':')) {
     id = id.substring(1);
@@ -31,6 +30,7 @@ const Maincomponent = () => {
     if (id) {
       fetchData();
     }
+    console.log(errors,formData);
   }, [id,setFormData]);
 
   const [currentPage, setCurrentPage] = useState(1);

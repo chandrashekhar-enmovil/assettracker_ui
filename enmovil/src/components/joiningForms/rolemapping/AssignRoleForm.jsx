@@ -139,9 +139,6 @@ const AssignRolesForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        maxContentLength:Infinity,
-        maxContentLength:Infinity,
-        //timeout: 20000 
       });
       if (response.data.status === 'success') {
         if (buttonName === 'update') {

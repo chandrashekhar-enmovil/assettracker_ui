@@ -96,6 +96,8 @@ const Appdata = () => {
         responsibilities: false,
         reportingTo: false,
         empId: false,
+        gender: false,
+        maritalStatus: false,
       };
     
       const [errors, setErrors] = useState(initialErrors);

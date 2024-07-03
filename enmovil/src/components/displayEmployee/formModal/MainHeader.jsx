@@ -2,8 +2,6 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
 import { Button } from '@mui/material';
-import './App.css';
-
 const ManinHeader = () => {
   const [showModal, setShowModal] = useState(false);
 
