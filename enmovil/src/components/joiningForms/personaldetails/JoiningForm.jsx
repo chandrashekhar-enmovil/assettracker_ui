@@ -42,7 +42,7 @@ const JoiningForm = ({formdata}) => {
     event.preventDefault(); 
     console.log('Form Submitted:', formData);
   };
-
+ console.log(formData);
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Personal details</Text>

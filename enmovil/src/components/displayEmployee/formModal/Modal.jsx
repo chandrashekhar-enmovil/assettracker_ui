@@ -240,6 +240,7 @@ const Modal = ({ show, onClose }) => {
             if (response.data.status === 'failure') {
                 setSnackbarSeverity('error');
                 setSnackbarMessage(`${response.data.message}`);
+                console.log(`${response.data.successCount} added successfully out of ${response.data.successCount + response.data.failureCount}`)
             } else {
                 setSnackbarSeverity('success');
                 setSnackbarMessage(`${response.data.successCount} added successfully out of ${response.data.successCount + response.data.failureCount}`);

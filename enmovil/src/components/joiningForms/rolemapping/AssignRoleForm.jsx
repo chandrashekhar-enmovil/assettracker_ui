@@ -51,7 +51,6 @@ const AssignRolesForm = () => {
             if(variant[key]==='')
             {
               valid=false
-              //console.log(key);
               setSnackbarSeverity('error');
               setSnackbarMessage(`Please fill out the ${key.replace(/([A-Z])/g, ' $1').toLowerCase()} field.`);
               setSnackbarOpen(true);

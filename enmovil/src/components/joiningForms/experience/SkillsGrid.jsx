@@ -78,10 +78,8 @@ const SkillsGrid = () => {
     setSelectedSkills(updatedSkills);
     updateFormData('skillsByCategory', updatedSkills);
   };
-
   return (
-    <>
-    
+  <>
     <View style={styles.header}>
         <Text style={styles.title}>Select your  Skills</Text>
       </View>
