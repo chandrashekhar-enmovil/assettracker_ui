@@ -9,6 +9,7 @@ import AssignRolesForm from '../rolemapping/AssignRoleForm';
 import { Route, Router, Routes, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Appdata from '../../AppContext/Appdata';
+import BgvCheck from '../bgvcheck/BgvCheck';
 const Maincomponent = () => {
   const { formData,setFormData,errors,setErrors} = useContext(AppContext);
   var {id}=useParams();
@@ -30,7 +31,7 @@ const Maincomponent = () => {
     if (id) {
       fetchData();
     }
-    console.log(errors,formData);
+    console.log(errors,formData)
   }, [id,setFormData]);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -43,6 +44,8 @@ const Maincomponent = () => {
       case 3:
         return <Experience/>;
       case 4:
+          return <BgvCheck/>;
+      case 5:
           return <AssignRolesForm/>;
       default:
         return <JoiningForm/>;

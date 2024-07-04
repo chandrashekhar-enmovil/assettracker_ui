@@ -8,7 +8,7 @@ const Pagination = ({setCurrentPage }) => {
     setActiveButton(buttonIndex);
     setCurrentPage(buttonIndex);
   };
-  const pageNames = ['Personal Details', 'Education', 'Experience','RoleMapping'];
+  const pageNames = ['Personal Details', 'Education', 'Experience','Background check','RoleMapping'];
   return (
     <View style={styles.main}>
       {pageNames.map((name, index) => (
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 5,
     marginHorizontal: 5,
-    width:'24.2%',
+    width:'19%',
   },
   activeButton: {
     backgroundColor: '#bfc2c7',

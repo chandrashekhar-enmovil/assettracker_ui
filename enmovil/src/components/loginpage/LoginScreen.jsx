@@ -13,7 +13,7 @@ const LoginScreen = () => {
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [snackbarSeverity, setSnackbarSeverity] = useState('success');
   const navigate = useNavigate();
-  const { isAuthenticated, login } = useAuth();
+  const { login } = useAuth();
 
   useEffect(() => {
     const username = localStorage.getItem('username');
@@ -27,7 +27,7 @@ const LoginScreen = () => {
     setLoading(true);
     // Mock authentication logic
     setTimeout(() => {
-      if (email === 'user' && password === 'password') {
+      if (email === 'user@gmail.com' && password === 'password') {
         login(email, 'your_token_here');
         setLoading(false);
         setSnackbarMessage('Login successful!');
@@ -149,8 +149,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   left: {
-    borderTopStartRadius: '30%',
-    borderRadius: 15,
+    //borderTopStartRadius: '5%',
+    borderRadius: 40,
     width: '100vh',
     padding: 70,
     justifyContent: 'center',

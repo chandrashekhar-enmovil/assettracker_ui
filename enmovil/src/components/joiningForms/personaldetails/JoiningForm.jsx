@@ -7,10 +7,6 @@ import { StyleSheet } from 'react-native';
 const JoiningForm = ({formdata}) => {
   const [emailError, setEmailError] = useState(false);  
   const { formData, updateFormData,errors, setErrors,setFormData} = useContext(AppContext);
-  // if(formdata){
-  //   setFormData(formdata);
-  // }
-  // console.log(formData);
   const handleChange = (field, value) => {
     updateFormData(field, value);
     setErrors(prevErrors => ({

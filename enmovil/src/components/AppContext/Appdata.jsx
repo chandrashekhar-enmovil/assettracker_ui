@@ -69,6 +69,9 @@ const Appdata = () => {
         reportingTo: '',
         empId: '',
         yearsOfExperience: '',
+        criminal:'',
+        doConviction:'',
+        sentence:'',
       };
       const initialErrors = {
         firstName: false,
@@ -98,12 +101,10 @@ const Appdata = () => {
         empId: false,
         gender: false,
         maritalStatus: false,
+        criminal:false
       };
-    
       const [errors, setErrors] = useState(initialErrors);
       const [formData, setFormData] = useState(initialFormData);
-    
-
     return { errors, setErrors, formData, setFormData,initialErrors,initialFormData};
 };
 export default Appdata;

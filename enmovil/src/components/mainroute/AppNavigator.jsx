@@ -13,6 +13,7 @@ import Experience from '../joiningForms/experience/Experience';
 import Education from '../joiningForms/education/Education';
 import JoiningForm from '../joiningForms/personaldetails/JoiningForm';
 import AssignRolesForm from '../joiningForms/rolemapping/AssignRoleForm';
+import BgvCheck from '../joiningForms/bgvcheck/BgvCheck';
 const AppNavigator = () => {
   const { logout } = useAuth();
   const [activeButton, setActiveButton] = React.useState(1);
@@ -56,6 +57,7 @@ const AppNavigator = () => {
           <Route path="/education" element={<AppProvider><Education /></AppProvider>} />
           <Route path="/experience" element={<AppProvider><Experience /></AppProvider>} />
           <Route path="/assignrolesform" element={<AppProvider><AssignRolesForm /></AppProvider>} />
+          <Route path="/bgvcheck" element={<AppProvider><BgvCheck /></AppProvider>} />
         </Routes>
       </View>
     </View>

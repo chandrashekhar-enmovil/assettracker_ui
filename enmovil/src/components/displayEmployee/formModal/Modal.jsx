@@ -154,7 +154,6 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import axios from 'axios';
 import DownloadSampleFileButton from './DownloadSampleFileButton';
 import './Modal.css';
-
 const Modal = ({ show, onClose }) => {
     const [file, setFile] = useState(null);
     const [parsedData, setParsedData] = useState([]);
@@ -212,7 +211,6 @@ const Modal = ({ show, onClose }) => {
             }, {});
         });
     };
-
     const parseFile = (file) => {
         const reader = new FileReader();
         reader.onload = (event) => {
@@ -222,7 +220,6 @@ const Modal = ({ show, onClose }) => {
         };
         reader.readAsText(file);
     };
-
     const handleSubmit = async () => {
         if (!file) {
             setError('Please select a file first.');
@@ -257,7 +254,6 @@ const Modal = ({ show, onClose }) => {
     const handleCloseSnackbar = () => {
         setSnackbarOpen(false);
     };
-
     return (
         <div className={`modal ${show ? 'show' : ''}`}>
             <div className="modal-content">
