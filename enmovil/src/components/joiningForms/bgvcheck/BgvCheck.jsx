@@ -3,7 +3,6 @@ import { StyleSheet, Text, View ,ScrollView} from 'react-native';
 import AppContext from '../../AppContext/AppContext';
 import { Box, Container, FormControl, InputLabel, MenuItem, Paper, Select, TextField, Typography, } from '@mui/material';
 import DocumentUploadForm from './DocumentUploadForm';
-
 const BgvCheck = () => {
     const { formData, updateFormData,errors, setErrors,setFormData} = useContext(AppContext);
     useEffect(()=>{
@@ -13,7 +12,7 @@ const BgvCheck = () => {
     <View style={styles.container}>
       <Text style={styles.title}>BGV details</Text>
       <ScrollView showsVerticalScrollIndicator={false} >
-        <Text>Have you ever been convicted of a felony or misdemeanor?(Yes/No)</Text>
+        <Text style={styles.text}>Have you ever been convicted of a felony or misdemeanor?(Yes/No)</Text>
         <FormControl variant="outlined" fullWidth style={styles.textField50}>
             <InputLabel>crime *</InputLabel> 
             <Select
@@ -24,12 +23,12 @@ const BgvCheck = () => {
               helperText={errors.criminal ? 'please select':''}
               required
             >
-              <MenuItem value="NO">no</MenuItem>
+              <MenuItem value="NO">NO</MenuItem>
               <MenuItem value="YES">Yes</MenuItem>
             </Select>
           </FormControl>
             { formData.criminal ==='YES' &&   (<>
-            <Text>Please fill this details </Text>
+            <Text style={styles.text}>Please fill this details </Text>
             <View style={styles.input}>				
                 <TextField 
                     label='nature of offence'
@@ -101,9 +100,6 @@ const BgvCheck = () => {
 const styles = StyleSheet.create({
   container: {
       flex: 1,
-      //backgroundColor:'#f7f4eb',
-      // borderColor:'black',
-      // borderWidth:1,
   },
   title: {
       fontSize: 24,
@@ -117,10 +113,17 @@ const styles = StyleSheet.create({
   },
   textField50: {
       width: '49%',
-      margin: 10,
+      margin: 24,
   },
+  text: {
+    margin: 24,
+    marginTop:0,
+    marginBottom:3,
+},
   input: {
       width: '100%',
+      marginLeft:10,
+      marginRight:10,
       flexDirection: 'row',
       justifyContent: 'space-between',
   },

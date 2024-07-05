@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { Container, Button, Typography, Box, Paper, Grid } from '@mui/material';
 import { styled } from '@mui/system';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-
 const Input = styled('input')({
   display: 'none',
 });
-
 const DocumentUploadForm = () => {
   const [formData, setFormData] = useState({
     resume: null,
@@ -18,7 +16,6 @@ const DocumentUploadForm = () => {
     sscCertificate: null,
     passportPhoto: null,
   });
-
   const handleFileChange = (event, fieldName) => {
     setFormData({
       ...formData,
@@ -55,7 +52,7 @@ const DocumentUploadForm = () => {
                   type="file"
                   onChange={(e) => handleFileChange(e, 'resume')}
                 />
-                <Button variant="contained" component="span" fullWidth startIcon={<CloudUploadIcon />}>
+                <Button variant="contained" component="span" fullWidth startIcon={<CloudUploadIcon/>}>
                   Upload Resume
                 </Button>
                 {formData.resume && (
@@ -185,9 +182,9 @@ const DocumentUploadForm = () => {
               </label>
             </Grid>
           </Grid>
-          <Button type="submit" variant="contained" color="primary" sx={{ marginTop: 3 }}>
+          {/* <Button type="submit" variant="contained" color="primary" sx={{ marginTop: 3 }}>
             Submit
-          </Button>
+          </Button> */}
         </Box>
       </Paper>
     </Container>

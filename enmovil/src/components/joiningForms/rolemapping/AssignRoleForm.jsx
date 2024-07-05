@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { Container, TextField, Button, MenuItem, Typography, FormControl, InputLabel, Select, Snackbar, Alert } from '@mui/material';
 import AppContext from '../../AppContext/AppContext';
 import axios from 'axios';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const AssignRolesForm = () => {
   const { formData, updateFormData, errors, setErrors,setFormData,initialFormData } = useContext(AppContext);
@@ -11,10 +12,11 @@ const AssignRolesForm = () => {
   const [snackbarSeverity, setSnackbarSeverity] = useState('submit');
   const [buttonName, setButtonName] = useState('update');
   const [url, setUrl] = useState("http://216.48.185.128:3001/assetEmp/empRegister");
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post("http://216.48.185.128:3001/assetEmp/getEmployeeDetailsById",{"empId":formData.empId});
+        const response = await axios.post("http://216.48.185.128:3001/assetEmp/getEmployeeDetailsById",{"empId":formData.empId || '*&6'});
         const data = response.data;
         console.log(data)
         if (data.status === "success") {
@@ -169,6 +171,10 @@ const AssignRolesForm = () => {
             setFormData(initialFormData);
           }, 5000);
         }
+        setTimeout(() => {
+          navigate(`/employees/`);
+
+        },1500);
       } 
       else {
         setSnackbarMessage(response.data.message);

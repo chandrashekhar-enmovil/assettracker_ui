@@ -3,7 +3,9 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 import axios from 'axios';
-import { Button } from '@mui/material';
+import { Button, CircularProgress } from '@mui/material';
+import { Edit as EditIcon } from '@mui/icons-material';
+
 import { Link, useNavigate } from 'react-router-dom';
 
 function Employeee() {
@@ -43,14 +45,11 @@ function Employeee() {
 
         fetchData();
     }, []);
-
     const CustomButtonComponent = (params) => {
         return (
            
             <Link to={`/app/editform/`+params.data.ID}>
-                <Button  variant="contained">
-                    Edit
-                </Button>
+                <EditIcon aria-label="Edit" /> 
             </Link>
             
         );
@@ -68,15 +67,25 @@ function Employeee() {
             },
         },
         {
+            headerName: "EDIT",
+            sortable: false ,
+            field: "action",
+            cellRenderer: CustomButtonComponent,
+            cellStyle: { borderRightColor: '#e2e2e2' },
+            width: 70,
+            pinned: 'left',
+           
+        },
+        {
             headerName: "NAME",
             field: "NAME",
             pinned: 'left',
             cellStyle: { borderRightColor: '#e2e2e2' },
             filter: 'agSetColumnFilter',
-            filterParams: {
-                buttons: ['apply', 'reset'],
-                closeOnApply: true,
-            },
+            // filterParams: {
+            //     buttons: ['apply', 'reset'],
+            //     closeOnApply: true,
+            // },
         },
         {
             headerName: "EMAIL",
@@ -84,20 +93,20 @@ function Employeee() {
             pinned: 'left',
             cellStyle: { borderRightColor: '#e2e2e2' },
             filter: 'agSetColumnFilter',
-            filterParams: {
-                buttons: ['apply', 'reset'],
-                closeOnApply: true,
-            },
+            // filterParams: {
+            //     buttons: ['apply', 'reset'],
+            //     closeOnApply: true,
+            // },
         },
         {
             headerName: "PHONE NO",
             field: "PHONE",
             cellStyle: { borderRightColor: '#e2e2e2' },
             filter: 'agSetColumnFilter',
-            filterParams: {
-                buttons: ['apply', 'reset'],
-                closeOnApply: true,
-            },
+            // filterParams: {
+            //     buttons: ['apply', 'reset'],
+            //     closeOnApply: true,
+            // },
         },
         {
             headerName: "ADDRESS",
@@ -105,89 +114,82 @@ function Employeee() {
             width: 300,
             cellStyle: { borderRightColor: '#e2e2e2' },
             filter: 'agSetColumnFilter',
-            filterParams: {
-                buttons: ['apply', 'reset'],
-                closeOnApply: true,
-            },
+            // filterParams: {
+            //     buttons: ['apply', 'reset'],
+            //     closeOnApply: true,
+            // },
         },
         {
             headerName: "WORK LOCATION",
             field: "WORK",
             cellStyle: { borderRightColor: '#e2e2e2' },
             filter: 'agSetColumnFilter',
-            filterParams: {
-                buttons: ['apply', 'reset'],
-                closeOnApply: true,
-            },
+            // filterParams: {
+            //     buttons: ['apply', 'reset'],
+            //     closeOnApply: true,
+            // },
         },
         {
             headerName: "REPORTINGTO",
             field: "REPORTINGTO",
             cellStyle: { borderRightColor: '#e2e2e2' },
             filter: 'agSetColumnFilter',
-            filterParams: {
-                buttons: ['apply', 'reset'],
-                closeOnApply: true,
-            },
+            // filterParams: {
+            //     buttons: ['apply', 'reset'],
+            //     closeOnApply: true,
+            // },
         },
         {
             headerName: "DESIGNATION",
             field: "DESIGNATION",
             cellStyle: { borderRightColor: '#e2e2e2' },
             filter: 'agSetColumnFilter',
-            filterParams: {
-                buttons: ['apply', 'reset'],
-                closeOnApply: true,
-            },
+            // filterParams: {
+            //     buttons: ['apply', 'reset'],
+            //     closeOnApply: true,
+            // },
         },
         {
             headerName: "WORK PHONE",
             field: "WORK_PHONE",
             cellStyle: { borderRightColor: '#e2e2e2' },
             filter: 'agSetColumnFilter',
-            filterParams: {
-                buttons: ['apply', 'reset'],
-                closeOnApply: true,
-            },
+            // filterParams: {
+            //     buttons: ['apply', 'reset'],
+            //     closeOnApply: true,
+            // },
         },
         {
             headerName: "WORK EMAIL",
             field: "WORK_EMAIL",
             cellStyle: { borderRightColor: '#e2e2e2' },
             filter: 'agSetColumnFilter',
-            filterParams: {
-                buttons: ['apply', 'reset'],
-                closeOnApply: true,
-            },
+            // filterParams: {
+            //     buttons: ['apply', 'reset'],
+            //     closeOnApply: true,
+            // },
         },
         {
             headerName: "WORK TEAMS",
             field: "WORK_TEAMS",
             cellStyle: { borderRightColor: '#e2e2e2' },
             filter: 'agSetColumnFilter',
-            filterParams: {
-                buttons: ['apply', 'reset'],
-                closeOnApply: true,
-            },
+            // filterParams: {
+            //     buttons: ['apply', 'reset'],
+            //     closeOnApply: true,
+            // },
         },
         {
             headerName: "TEAM",
             field: "MANAGER",
             cellStyle: { borderRightColor: '#e2e2e2' },
             filter: 'agSetColumnFilter',
-            filterParams: {
-                buttons: ['apply', 'reset'],
-                closeOnApply: true,
-            },
+            // filterParams: {
+            //     buttons: ['apply', 'reset'],
+            //     closeOnApply: true,
+            // },
         },
-        {
-            headerName: "Actions",
-            field: "action",
-            cellRenderer: CustomButtonComponent,
-            cellStyle: { borderRightColor: '#e2e2e2' },
-            width: 160,
-            sortable: false,
-        },
+        
     ];
 
     return (
@@ -205,7 +207,8 @@ function Employeee() {
                     alignItems: 'center',
                     zIndex: 1,
                 }}>
-                    <div>Loading...</div>
+                    <CircularProgress />
+                    {/* <div>Loading...</div> */}
                 </div>
             )}
             <div className="ag-theme-alpine" style={styles.grid}>
@@ -214,10 +217,10 @@ function Employeee() {
                     rowData={rowData}
                     pagination={true}
                     paginationPageSize={20}
-                    defaultColDef={{
-                        sortable: true,
-                        filter: true,
-                    }}
+                    // defaultColDef={{
+                    //     sortable: true,
+                    //     filter: true,
+                    // }}
                 />
             </div>
         </div>

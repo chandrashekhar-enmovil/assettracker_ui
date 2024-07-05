@@ -11,15 +11,15 @@ import axios from 'axios';
 import Appdata from '../../AppContext/Appdata';
 import BgvCheck from '../bgvcheck/BgvCheck';
 const Maincomponent = () => {
-  const { formData,setFormData,errors,setErrors} = useContext(AppContext);
+  const {setFormData} = useContext(AppContext);
   var {id}=useParams();
   if (id && id.startsWith(':')) {
-    id = id.substring(1);
+    id = id.substring(1);  
   }
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post("http://216.48.185.128:3001/assetEmp/getEmployeeDetailsById",{ "empId": id });
+        const response = await axios.post("http://216.48.185.128:3001/assetEmp/getEmployeeDetailsById",{"empId":id});
         const data = response.data;
         if (data.status === "success") {
           setFormData(data.employee);
@@ -31,7 +31,7 @@ const Maincomponent = () => {
     if (id) {
       fetchData();
     }
-    console.log(errors,formData)
+    // console.log(errors,formData)
   }, [id,setFormData]);
 
   const [currentPage, setCurrentPage] = useState(1);
