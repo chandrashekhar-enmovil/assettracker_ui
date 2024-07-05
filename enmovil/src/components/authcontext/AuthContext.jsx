@@ -31,8 +31,6 @@ const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
-
-// Custom hook to use the AuthContext
 const useAuth = () => useContext(AuthContext);
 
 export { AuthProvider, useAuth };
