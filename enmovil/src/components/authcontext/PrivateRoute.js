@@ -3,14 +3,14 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 
-const PrivateRoute = ({ element: Element }) => {
+const PrivateRoute = ({ element: Element,...rest }) => {
   const { isAuthenticated, loading } = useAuth();
 
-  // if (loading) {
-  //   return <div>Loading...</div>; // Show a loading indicator while checking auth state
-  // }
+  if (loading) {
+    return <div>Loading...</div>; 
+  }
 
-  return isAuthenticated ? <Element /> : <Navigate to="/login" />;
+  return isAuthenticated ? <Element {...rest}/> : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;

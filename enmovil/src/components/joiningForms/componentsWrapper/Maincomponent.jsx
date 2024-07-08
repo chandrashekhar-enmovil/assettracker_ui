@@ -10,8 +10,10 @@ import { Route, Router, Routes, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Appdata from '../../AppContext/Appdata';
 import BgvCheck from '../bgvcheck/BgvCheck';
+import { useAuth } from '../../authcontext/AuthContext';
 const Maincomponent = () => {
-  const {setFormData} = useContext(AppContext);
+  const { formData,setFormData} = useContext(AppContext);
+  const {user}=useAuth();
   var {id}=useParams();
   if (id && id.startsWith(':')) {
     id = id.substring(1);  
@@ -54,10 +56,10 @@ const Maincomponent = () => {
   return (
       <View style={styles.Maincontainer}>
             <View style={styles.container}>
-            <Pagination  setCurrentPage={setCurrentPage} />
-            <View style={{height:'85vh',}}>
-                {renderPage()}
-            </View>
+              <Pagination  setCurrentPage={setCurrentPage} role={user.role}/>
+              <View style={{height:'85vh',}}>
+                  {renderPage()}
+              </View>
           </View>
     </View>
   );

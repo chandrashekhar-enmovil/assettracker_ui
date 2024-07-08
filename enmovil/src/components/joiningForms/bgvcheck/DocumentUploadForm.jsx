@@ -182,9 +182,6 @@ const DocumentUploadForm = () => {
               </label>
             </Grid>
           </Grid>
-          {/* <Button type="submit" variant="contained" color="primary" sx={{ marginTop: 3 }}>
-            Submit
-          </Button> */}
         </Box>
       </Paper>
     </Container>
