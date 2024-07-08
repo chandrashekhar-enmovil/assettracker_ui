@@ -15,12 +15,6 @@ const BgvCheck = () => {
         message: '',
         severity: 'info'
     });
-   
-
-    useEffect(() => {
-        console.log(formData.criminal, formData, errors,user,user.role);
-    }, [formData.criminal]);
-
     useEffect(() => {
         const formIsValid = validateForm(formData, errors, setSnackbar);
         setIsFormValid(formIsValid);
@@ -129,13 +123,11 @@ const BgvCheck = () => {
                     </Paper>
                 </Container>
                 <DocumentUploadForm />
+                <br/>
                     {user.role === 'user' && (
                     <>
                     <Button type="submit" variant="contained" color="primary" disabled={!isFormValid}>
                          {'submit'}
-                      </Button>
-                      <Button variant="contained" color="secondary" onClick={logout}>
-                            Logout
                       </Button>
                     </>
                 )}

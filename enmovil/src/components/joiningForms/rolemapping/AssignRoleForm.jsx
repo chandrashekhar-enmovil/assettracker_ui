@@ -635,16 +635,16 @@ const AssignRolesForm = () => {
   );
 };
 
-const SelectBlock = ({ label, placeholder, onChange, value, options, width }) => (
-  <div className="mr-5p" style={{ width }}>
-    <label>{label}</label>
-    <Select
-      placeholder={placeholder}
-      onChange={onChange}
-      value={value}
-      options={options}
-    />
-  </div>
-);
+// const SelectBlock = ({ label, placeholder, onChange, value, options, width }) => (
+//   <div className="mr-5p" style={{ width }}>
+//     <label>{label}</label>
+//     <Select
+//       placeholder={placeholder}
+//       onChange={onChange}
+//       value={value}
+//       options={options}
+//     />
+//   </div>
+// );
 
 export default AssignRolesForm;

@@ -29,7 +29,7 @@ const DocumentUploadForm = () => {
   };
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="xlg">
       <Paper elevation={3} sx={{ padding: 3, marginTop: 5 }}>
         <Box
           component="form"

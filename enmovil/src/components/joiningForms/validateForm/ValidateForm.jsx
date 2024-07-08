@@ -12,7 +12,7 @@ const validateForm = (formData, errors, setSnackbar) => {
             break;
         }
     }
-    if (formData.yearsOfExperience !== '0') {
+    if (formData.yearsOfExperience != '0') {
         let variant = formData.experience[0];
         for (let key in variant) {
             if (variant[key] === '') {

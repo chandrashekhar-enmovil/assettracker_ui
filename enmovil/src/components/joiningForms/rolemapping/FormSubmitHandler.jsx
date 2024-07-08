@@ -33,7 +33,6 @@ const FormSubmitHandler = ({ formData, buttonName, setSnackbarMessage, setSnackb
             setFormData(initialFormData);
           }, 5000);
         }
-
         setTimeout(() => {
           navigate('/employees/');
         }, 1500);

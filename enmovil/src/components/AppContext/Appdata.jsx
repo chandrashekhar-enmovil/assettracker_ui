@@ -68,10 +68,10 @@ const Appdata = () => {
         designation: '',
         reportingTo: '',
         empId: '',
-        yearsOfExperience: '',
-        criminal:'',
-        doConviction:'',
-        sentence:'',
+        yearsOfExperience: '0',
+        // criminal:'',
+        // doConviction:'',
+        // sentence:'',
       };
       const initialErrors = {
         firstName: false,
