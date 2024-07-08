@@ -12,9 +12,9 @@ function Employeee() {
     const [rowData, setRowData] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
-    const onButtonClick = (e, row) => {
-         navigate(`/editform/:${row.ID}`);
-    };
+    // const onButtonClick = (e, row) => {
+    //      navigate(`/editform/:${row.ID}`);
+    // };
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
