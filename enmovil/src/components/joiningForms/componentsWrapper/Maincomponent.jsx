@@ -33,7 +33,6 @@ const Maincomponent = () => {
     if (id) {
       fetchData();
     }
-    // console.log(errors,formData)
   }, [id,setFormData]);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -68,7 +67,7 @@ export default Maincomponent;
 const styles = StyleSheet.create({
   Maincontainer:{
     backgroundColor:'white',
-    height:'100vh'
+    flex:1,
   },
   container: {
     flex: 1,
@@ -81,7 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white', 
     padding: 20,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: -10 },
+    shadowOffset: { width: 0, height: 0},
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5, 

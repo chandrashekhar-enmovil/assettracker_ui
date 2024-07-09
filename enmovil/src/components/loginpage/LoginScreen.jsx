@@ -42,7 +42,7 @@ const LoginScreen = () => {
         setSnackbarSeverity('success');
         setSnackbarOpen(true);
         setTimeout(() => {
-          navigate('/maincomponent');
+          navigate('/employee');
         }, 1000);
       } else {
         setLoading(false);

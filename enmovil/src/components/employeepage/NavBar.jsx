@@ -11,7 +11,6 @@ const NavBar = () => {
     const handleButtonClick = (buttonId) => {
         setActiveButton(buttonId);
     };
-
     return (
         <AppBar position="static">
             <Toolbar>
@@ -21,7 +20,7 @@ const NavBar = () => {
                 <Button
                     color='inherit'
                     component={Link}
-                    to='/maincomponent/homepage'
+                    to='/employee/homepage'
                     onClick={() => handleButtonClick(1)}
                     style={activeButton === 1 ? styles.activeButton : styles.button}
                 >
@@ -30,7 +29,7 @@ const NavBar = () => {
                 <Button
                     color="inherit"
                     component={Link}
-                    to="/maincomponent/joiningforms"
+                    to="/employee/joiningforms"
                     onClick={() => handleButtonClick(2)}
                     style={activeButton === 2 ? styles.activeButton : styles.button}
                 >
@@ -39,7 +38,7 @@ const NavBar = () => {
                 <Button
                     color='inherit'
                     component={Link}
-                    to='/maincomponent/about'
+                    to='/employee/about'
                     onClick={() => handleButtonClick(3)}
                     style={activeButton === 3 ? styles.activeButton : styles.button}
                 >

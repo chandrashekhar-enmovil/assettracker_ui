@@ -1,15 +1,11 @@
 import React from 'react';
-import { Container, Typography } from '@mui/material';
 import NavBar from './NavBar';
-import { useAuth } from '../authcontext/AuthContext';
 import { Route, Routes } from 'react-router-dom';
 import PrivateRoute from '../authcontext/PrivateRoute';
 import Maincomponent from '../joiningForms/componentsWrapper/Maincomponent';
 import EmployeeHome from './EmployeeHome';
 import EmployeeAbout from './EmployeeAbout';
-
 const EmployeePage = () => {
-    const { user } = useAuth();
     return (
         <div style={styles.pageContainer}>
             <NavBar />
@@ -31,6 +27,9 @@ const styles = {
         height: '100vh',
         overflow: 'hidden'
     },
+    contentContainer:{
+        height:'100%',
+        overflow:'auto',
+    }
 };
-
 export default EmployeePage;
