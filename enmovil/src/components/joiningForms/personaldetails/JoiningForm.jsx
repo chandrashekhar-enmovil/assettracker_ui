@@ -4,7 +4,7 @@ import { FormControl, InputLabel, Select, MenuItem, TextField } from '@mui/mater
 import AppContext from '../../AppContext/AppContext';
 import { StyleSheet } from 'react-native';
 
-const JoiningForm = ({formdata}) => {
+const JoiningForm = () => {
   const [emailError, setEmailError] = useState(false);  
   const { formData, updateFormData,errors, setErrors,setFormData} = useContext(AppContext);
   const handleChange = (field, value) => {
@@ -38,7 +38,6 @@ const JoiningForm = ({formdata}) => {
     event.preventDefault(); 
     console.log('Form Submitted:', formData);
   };
- console.log(formData);
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Personal details</Text>

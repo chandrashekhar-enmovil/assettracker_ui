@@ -69,9 +69,9 @@ const Appdata = () => {
         reportingTo: '',
         empId: '',
         yearsOfExperience: '0',
-        // criminal:'',
-        // doConviction:'',
-        // sentence:'',
+        criminal:'',
+        doConviction:'',
+        sentence:'',
       };
       const initialErrors = {
         firstName: false,
@@ -96,9 +96,6 @@ const Appdata = () => {
         interBoard: false,
         interPass: false,
         interGrade: false,
-        responsibilities: false,
-        reportingTo: false,
-        empId: false,
         gender: false,
         maritalStatus: false,
         criminal:false

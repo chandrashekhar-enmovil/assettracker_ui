@@ -1,8 +1,8 @@
-// src/utils/validateForm.js
 const validateForm = (formData, errors, setSnackbar) => {
     let valid = true;
     for (let key in errors) {
-        if (formData[key] === '') {
+        if (formData[key] === '' || errors[key]===true) {
+            // console.log(key,errors)
             valid = false;
             setSnackbar({
                 open: true,

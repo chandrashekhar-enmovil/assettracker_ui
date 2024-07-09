@@ -7,8 +7,8 @@ import validateForm from '../validateForm/ValidateForm';
 import { useAuth } from '../../authcontext/AuthContext';
 
 const BgvCheck = () => {
-    const { formData, updateFormData, errors, setErrors } = useContext(AppContext);
-    const { logout, user } = useAuth();
+    const { formData, updateFormData, errors} = useContext(AppContext);
+    const {user} = useAuth();
     const [isFormValid, setIsFormValid] = useState(false);
     const [snackbar, setSnackbar] = useState({
         open: false,
@@ -51,7 +51,7 @@ const BgvCheck = () => {
                 <FormControl variant="outlined" fullWidth style={styles.textField50}>
                     <InputLabel>Crime *</InputLabel>
                     <Select
-                        value={formData.criminal || 'NO'}
+                        value={formData.criminal||'No'}
                         onChange={(e) => updateFormData('criminal', e.target.value)}
                         label="Crime"
                         required

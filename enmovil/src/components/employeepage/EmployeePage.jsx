@@ -7,7 +7,6 @@ import PrivateRoute from '../authcontext/PrivateRoute';
 import Maincomponent from '../joiningForms/componentsWrapper/Maincomponent';
 const EmployeePage = () => {
     const { user} = useAuth(); 
-    console.log(user)
     return (
         <>
             <NavBar />

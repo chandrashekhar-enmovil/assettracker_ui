@@ -1,30 +1,92 @@
-import React from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../authcontext/AuthContext';
-// import { useContext } from 'react';
-// import AppContext from '../../AppContext/AppContext';
 
-const FormSubmitHandler = ({ formData, buttonName, setSnackbarMessage, setSnackbarSeverity, setSnackbarOpen, setFormData, initialFormData }) => {
-//   const { logout } = useAuth();
-  const navigate = useNavigate();
+const useFormSubmitHandler = ({ formData, buttonName, setSnackbarMessage, setSnackbarSeverity, setSnackbarOpen, setFormData, initialFormData, navigate }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log('inside')
     let url = buttonName === 'update'
       ? 'http://216.48.185.128:3001/assetEmp/editEmployeeDetails'
       : 'http://216.48.185.128:3001/assetEmp/empRegister';
 
     try {
-      const response = await axios.post(url, formData, {
+      const response = await axios.post(url, {
+        firstName: formData.firstName,
+        fatherName: formData.fatherName,
+        fatherBirthDate: formData.fatherBirthDate,
+        fatherOccupation: formData.fatherOccupation,
+        motherName: formData.motherName,
+        motherBirthDate: formData.motherBirthDate,
+        motherOccupation: formData.motherOccupation,
+        address: formData.address,
+        city: formData.city,
+        zipCode: formData.zipCode,
+        state: formData.state,
+        email: formData.email,
+        phHome: formData.phHome,
+        phonePersonal: formData.phonePersonal,
+        alternative: formData.alternative,
+        birthDate: formData.birthDate,
+        age: formData.age,
+        gender: formData.gender,
+        maritalStatus: formData.maritalStatus,
+        aadhar: formData.aadhar,
+        pan: formData.pan,
+        uan: formData.uan,
+        esi: formData.esi,
+        bank: formData.bank,
+        account: formData.account,
+        ifsc: formData.ifsc,
+        spouse: formData.spouse,
+        spouseAge: formData.spouseAge,
+        spouseGender: formData.spouseGender,
+        spouseBirthDate: formData.spouseBirthDate,
+        children1: formData.children1,
+        childrenGender1: formData.childrenGender1,
+        childrenDob1: formData.childrenDob1,
+        childrenAge1: formData.childrenAge1,
+        children2: formData.children2,
+        childrenGender2: formData.childrenGender2,
+        childrenDob2: formData.childrenDob2,
+        childrenAge2: formData.childrenAge2,
+        schoolName: formData.schoolName,
+        boardName: formData.boardName,
+        schoolPass: formData.schoolPass,
+        schoolGrade: formData.schoolGrade,
+        interName: formData.interName,
+        interBoard: formData.interBoard,
+        interPass: formData.interPass,
+        interGrade: formData.interGrade,
+        graduationName: formData.graduationName,
+        graduationBoard: formData.graduationBoard,
+        graduationPass: formData.graduationPass,
+        graduationGrade: formData.graduationGrade,
+        pgBoard: formData.pgBoard,
+        pgPass: formData.pgPass,
+        pgName: formData.pgName,
+        pgGrade: formData.pgGrade,
+        certifications: formData.certifications,
+        experience: formData.experience,
+        skillsByCategory: formData.skillsByCategory,
+        responsibilities: formData.responsibilities,
+        role: formData.role,
+        team: formData.team,
+        designation: formData.designation,
+        reportingTo: formData.reportingTo,
+        empId: formData.empId,
+        yearsOfExperience: formData.yearsOfExperience,
+        criminal: formData.criminal,
+        doConviction: formData.doConviction,
+        sentence: formData.sentence,
+      }, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
-
+      
+      console.log(response.data)
       if (response.data.status === 'success') {
-        setSnackbarMessage(buttonName === 'update' ? 'Data successfully updated!' : 'Data successfully added!');
+        setSnackbarMessage(buttonName === 'update' ? 'Employee Data successfully updated!' : 'Employee Data successfully added!');
         setSnackbarSeverity('success');
         setSnackbarOpen(true);
 
@@ -34,7 +96,7 @@ const FormSubmitHandler = ({ formData, buttonName, setSnackbarMessage, setSnackb
           }, 5000);
         }
         setTimeout(() => {
-          navigate('/employees/');
+          navigate('/');
         }, 1500);
       } else {
         setSnackbarMessage(response.data.message);
@@ -54,7 +116,6 @@ const FormSubmitHandler = ({ formData, buttonName, setSnackbarMessage, setSnackb
     }
   };
 
-//   return <button type="submit" onClick={handleSubmit}>Submit</button>;
+  return handleSubmit;
 };
-
-export default FormSubmitHandler;
+export default useFormSubmitHandler;
