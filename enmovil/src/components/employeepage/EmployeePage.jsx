@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import PrivateRoute from '../authcontext/PrivateRoute';
 import Maincomponent from '../joiningForms/componentsWrapper/Maincomponent';
 import EmployeeHome from './EmployeeHome';
+import EmployeeAbout from './EmployeeAbout';
 
 const EmployeePage = () => {
     const { user } = useAuth();
@@ -17,6 +18,7 @@ const EmployeePage = () => {
                     <Route path="/" element={<PrivateRoute element={() => <EmployeeHome />} />} />
                     <Route path="/joiningforms" element={<PrivateRoute element={() => <Maincomponent />} />} />
                     <Route path="/homepage" element={<PrivateRoute element={() => <EmployeeHome />} />} />
+                    <Route path="/about" element={<PrivateRoute element={() => <EmployeeAbout/>} />} />
                 </Routes>
             </div>
         </div>

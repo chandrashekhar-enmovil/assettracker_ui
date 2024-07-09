@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useAuth } from '../authcontext/AuthContext';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-
 const NavBar = () => {
     const { logout } = useAuth();
     const [activeButton, setActiveButton] = useState(1);
@@ -36,6 +35,15 @@ const NavBar = () => {
                     style={activeButton === 2 ? styles.activeButton : styles.button}
                 >
                     Add Details
+                </Button>
+                <Button
+                    color='inherit'
+                    component={Link}
+                    to='/maincomponent/about'
+                    onClick={() => handleButtonClick(3)}
+                    style={activeButton === 3 ? styles.activeButton : styles.button}
+                >
+                    About
                 </Button>
                 <TouchableOpacity onPress={logout}>
                     <LogoutIcon style={styles.icon} />
