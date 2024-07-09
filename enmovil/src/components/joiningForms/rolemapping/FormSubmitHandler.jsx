@@ -4,7 +4,6 @@ const useFormSubmitHandler = ({ formData, buttonName, setSnackbarMessage, setSna
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('inside')
     let url = buttonName === 'update'
       ? 'http://216.48.185.128:3001/assetEmp/editEmployeeDetails'
       : 'http://216.48.185.128:3001/assetEmp/empRegister';

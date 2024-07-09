@@ -22,12 +22,10 @@ const DocumentUploadForm = () => {
       [fieldName]: event.target.files[0],
     });
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
   };
-
   return (
     <Container maxWidth="xlg">
       <Paper elevation={3} sx={{ padding: 3, marginTop: 5 }}>
@@ -187,5 +185,4 @@ const DocumentUploadForm = () => {
     </Container>
   );
 };
-
 export default DocumentUploadForm;

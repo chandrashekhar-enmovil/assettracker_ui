@@ -5,20 +5,34 @@ import { Box, Container, FormControl, InputLabel, MenuItem, Paper, Select, TextF
 import DocumentUploadForm from './DocumentUploadForm';
 import validateForm from '../validateForm/ValidateForm';
 import { useAuth } from '../../authcontext/AuthContext';
-
+import useFormSubmitHandler from '../rolemapping/FormSubmitHandler';
 const BgvCheck = () => {
-    const { formData, updateFormData, errors} = useContext(AppContext);
-    const {user} = useAuth();
+    const { formData, updateFormData, errors, setFormData, initialFormData } = useContext(AppContext);
+    const { user } = useAuth();
     const [isFormValid, setIsFormValid] = useState(false);
     const [snackbar, setSnackbar] = useState({
         open: false,
         message: '',
         severity: 'info'
     });
+    const setSnackbarMessage = (message) => setSnackbar(prev => ({ ...prev, message }));
+    const setSnackbarSeverity = (severity) => setSnackbar(prev => ({ ...prev, severity }));
+    const setSnackbarOpen = (open) => setSnackbar(prev => ({ ...prev, open }));
+    const handleSubmit = useFormSubmitHandler({
+        formData,
+        buttonName: 'submit',
+        setSnackbarMessage,
+        setSnackbarSeverity,
+        setSnackbarOpen,
+        setFormData,
+        initialFormData
+    });
+
     useEffect(() => {
         const formIsValid = validateForm(formData, errors, setSnackbar);
         setIsFormValid(formIsValid);
     }, [formData, errors]);
+    
 
     const handleCloseSnackbar = () => {
         setSnackbar(prevSnackbar => ({
@@ -26,23 +40,6 @@ const BgvCheck = () => {
             open: false
         }));
     };
-
-    const handleSubmit = () => {
-        if (isFormValid) {
-            setSnackbar({
-                open: true,
-                message: 'Form submitted successfully!',
-                severity: 'success'
-            });
-        } else {
-            setSnackbar({
-                open: true,
-                message: 'Please fill out all required fields.',
-                severity: 'error'
-            });
-        }
-    };
-
     return (
         <View style={styles.container}>
             <Text style={styles.title}>BGV details</Text>
@@ -51,7 +48,7 @@ const BgvCheck = () => {
                 <FormControl variant="outlined" fullWidth style={styles.textField50}>
                     <InputLabel>Crime *</InputLabel>
                     <Select
-                        value={formData.criminal||'No'}
+                        value={formData.criminal || 'No'}
                         onChange={(e) => updateFormData('criminal', e.target.value)}
                         label="Crime"
                         required
@@ -123,26 +120,25 @@ const BgvCheck = () => {
                     </Paper>
                 </Container>
                 <DocumentUploadForm />
-                <br/>
-                    {user.role === 'user' && (
-                    <>
-                    <Button type="submit" variant="contained" color="primary" disabled={!isFormValid}>
-                         {'submit'}
-                      </Button>
-                    </>
+                <br />
+                {user.role === 'user' && (
+                    <Button type="button" variant="contained" color="primary" disabled={!isFormValid} onClick={handleSubmit}>
+                        Submit
+                    </Button>
                 )}
             </ScrollView>
-            {user.role === 'user'&&
-             (<Snackbar
-                open={snackbar.open}
-                autoHideDuration={6000}
-                onClose={handleCloseSnackbar}
-                anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-            >
-                <Alert onClose={handleCloseSnackbar} severity={snackbar.severity} sx={{ width: '100%' }}>
-                    {snackbar.message}
-                </Alert>
-            </Snackbar>)}
+            {user.role === 'user' && (
+                <Snackbar
+                    open={snackbar.open}
+                    autoHideDuration={6000}
+                    onClose={handleCloseSnackbar}
+                    anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+                >
+                    <Alert onClose={handleCloseSnackbar} severity={snackbar.severity} sx={{ width: '100%' }}>
+                        {snackbar.message}
+                    </Alert>
+                </Snackbar>
+            )}
         </View>
     );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, Link,Switch } from 'react-router-dom';
 import Employee from '../displayEmployee/Employee';
 import Maincomponent from '../joiningForms/componentsWrapper/Maincomponent';
@@ -16,7 +16,7 @@ import AssignRolesForm from '../joiningForms/rolemapping/AssignRoleForm';
 import BgvCheck from '../joiningForms/bgvcheck/BgvCheck';
 const AppNavigator = () => {
   const { logout } = useAuth();
-  const [activeButton, setActiveButton] = React.useState(1);
+  const [activeButton, setActiveButton] = useState(1);
   const handlePress = (buttonNumber) => {
     setActiveButton(buttonNumber);
   };
