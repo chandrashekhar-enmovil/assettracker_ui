@@ -9,19 +9,7 @@ import SkillsGrid from './SkillsGrid';
 
 const Experience = () => {
   const { formData, updateFormData } = useContext(AppContext);
-  const [selectedSkills, setSelectedSkills] = useState([]);
   const [yearsOfExperience, setYearsOfExperience] = useState(formData.yearsOfExperience || "0");
-
-  const handleSkillsChange = (event, value) => {
-    setSelectedSkills(value);
-    updateFormData('skills', value);
-  };
-
-  const handleDeleteSkill = (skillToDelete) => {
-    const updatedSkills = selectedSkills.filter((skill) => skill !== skillToDelete);
-    setSelectedSkills(updatedSkills);
-    updateFormData('skills', updatedSkills);
-  };
 
   const handleAddFields = () => {
     updateFormData('experience', [

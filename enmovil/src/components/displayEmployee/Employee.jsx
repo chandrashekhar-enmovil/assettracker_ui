@@ -64,8 +64,6 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Employeee from '../displayGrid/Employeee';
 import Form from './Form';
-import ManinHeader from './formModal/MainHeader';
-
 const Employee = () => {
   return (
     <View style={styles.container}>

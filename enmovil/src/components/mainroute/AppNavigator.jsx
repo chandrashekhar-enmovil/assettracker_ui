@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route, Link,Switch } from 'react-router-dom';
+import { Routes, Route, Link} from 'react-router-dom';
 import Employee from '../displayEmployee/Employee';
 import Maincomponent from '../joiningForms/componentsWrapper/Maincomponent';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';

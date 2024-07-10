@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import Certifications from '../certification/Certifications';
 import AppContext from '../../AppContext/AppContext';
+import { CloudUpload } from '@mui/icons-material';
 
 const Education = () => {
   const { formData, updateFormData,errors,setErrors} = useContext(AppContext);
@@ -13,7 +14,6 @@ const Education = () => {
       [field]: !value,
     });
   };
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Educational Details</Text>
@@ -60,6 +60,27 @@ const Education = () => {
             helperText={errors.schoolGrade ? 'Please enter your CGPA or percentage' : ''}
             required
           />
+          <View style={styles.textField25}>
+            <input
+              accept="image/*"
+              style={{ display: 'none' }}
+              id="upload-tenthFile"
+              type="file"
+              onChange={(e) => handleChange('tenthFile', e.target.files[0])}
+            />
+            <label htmlFor="upload-tenthFile" style={styles.uploadLabel}>
+              <Button
+                variant="outlined"
+                component="span"
+                fullWidth
+                style={styles.uploadButton}
+                startIcon={<CloudUpload />}
+              >
+                Upload Aadhar File
+              </Button>
+            </label>
+            {formData.tenthFile &&<Text>{formData.tenthFile.name}</Text>}
+          </View>
         </View>
 
         <Text style={styles.subtitle}>INTERMEDIATE/12th</Text>
@@ -104,6 +125,27 @@ const Education = () => {
             helperText={errors.interGrade ? 'Please enter your CGPA or percentage' : ''}
             required
           />
+          <View style={styles.textField25}>
+            <input
+              accept="image/*"
+              style={{ display: 'none' }}
+              id="upload-interFile"
+              type="file"
+              onChange={(e) => handleChange('interFile', e.target.files[0])}
+            />
+            <label htmlFor="upload-interFile" style={styles.uploadLabel}>
+              <Button
+                variant="outlined"
+                component="span"
+                fullWidth
+                style={styles.uploadButton}
+                startIcon={<CloudUpload />}
+              >
+                upload Inter certificates
+              </Button>
+            </label>
+            {formData.interFile &&<Text>{formData.interFile.name}</Text>}
+          </View>
         </View>
 
         <Text style={styles.subtitle}>DEGREE/GRADUATION</Text>
@@ -148,6 +190,27 @@ const Education = () => {
             helperText={errors.graduationGrade ? 'Please enter your CGPA or percentage' : ''}
   
           />
+          <View style={styles.textField25}>
+            <input
+              accept="image/*"
+              style={{ display: 'none' }}
+              id="upload-degreeFile"
+              type="file"
+              onChange={(e) => handleChange('degreeFile', e.target.files[0])}
+            />
+            <label htmlFor="upload-degreeFile" style={styles.uploadLabel}>
+              <Button
+                variant="outlined"
+                component="span"
+                fullWidth
+                style={styles.uploadButton}
+                startIcon={<CloudUpload />}
+              >
+                upload degree certificates
+              </Button>
+            </label>
+            {formData.degreeFile &&<Text>{formData.degreeFile.name}</Text>}
+          </View>
         </View>
 
         <Text style={styles.subtitle}>POST GRADUATION</Text>
@@ -188,6 +251,27 @@ const Education = () => {
             error={errors.pgGrade}
             helperText={errors.pgGrade ? 'Please enter your CGPA or percentage' : ''}
           />
+          <View style={styles.textField25}>
+            <input
+              accept="image/*"
+              style={{ display: 'none' }}
+              id="upload-pgFile"
+              type="file"
+              onChange={(e) => handleChange('pgFile', e.target.files[0])}
+            />
+            <label htmlFor="upload-pgFile" style={styles.uploadLabel}>
+              <Button
+                variant="outlined"
+                component="span"
+                fullWidth
+                style={styles.uploadButton}
+                startIcon={<CloudUpload />}
+              >
+                upload Pg certificates
+              </Button>
+            </label>
+            {formData.pgFile &&<Text>{formData.pgFile.name}</Text>}
+          </View>
         </View>
         <Certifications />
       </ScrollView>
@@ -199,6 +283,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
+  },
+  textField25:{
+     marginTop:6,
+    width:'15%',
   },
   title: {
     fontSize: 24,

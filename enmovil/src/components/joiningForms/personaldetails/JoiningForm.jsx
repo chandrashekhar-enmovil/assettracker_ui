@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
-import { FormControl, InputLabel, Select, MenuItem, TextField } from '@mui/material';
+import { View, Text, ScrollView} from 'react-native';
+import { FormControl, InputLabel, Select, MenuItem, TextField, Button } from '@mui/material';
 import AppContext from '../../AppContext/AppContext';
 import { StyleSheet } from 'react-native';
-
+import { CloudUpload } from '@mui/icons-material';
 const JoiningForm = () => {
   const [emailError, setEmailError] = useState(false);  
-  const { formData, updateFormData,errors, setErrors,setFormData} = useContext(AppContext);
+  const { formData, updateFormData,errors, setErrors} = useContext(AppContext);
   const handleChange = (field, value) => {
     updateFormData(field, value);
     setErrors(prevErrors => ({
@@ -14,7 +14,6 @@ const JoiningForm = () => {
       [field]: !value,
     }));
   };
-
   const handlePhoneChange = (field,number) => {
     const isValid = /^[6789]\d{9}$/.test(number);
     updateFormData(field, number);
@@ -32,11 +31,6 @@ const JoiningForm = () => {
       ...prevErrors,
       'email': !isValidEmail,
     }));
-  };
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault(); 
-    console.log('Form Submitted:', formData);
   };
   return (
     <View style={styles.container}>
@@ -263,6 +257,50 @@ const JoiningForm = () => {
             required
           />
         </View>
+        <View style={styles.uploadContainer100}>
+          <View style={styles.uploadContainer}>
+            <input
+              accept="image/*"
+              style={{ display: 'none' }}
+              id="upload-aadhar"
+              type="file"
+              onChange={(e) => handleChange('aadharFile', e.target.files[0])}
+            />
+            <label htmlFor="upload-aadhar" style={styles.uploadLabel}>
+              <Button
+                variant="outlined"
+                component="span"
+                fullWidth
+                style={styles.uploadButton}
+                startIcon={<CloudUpload />}
+              >
+                Upload Aadhar File
+              </Button>
+            </label>
+            {formData.aadharFile &&<Text>{formData.aadharFile.name}</Text>}
+          </View>
+          <View style={styles.uploadContainer}>
+            <input
+              accept="image/*"
+              style={{ display: 'none' }}
+              id="upload-pan"
+              type="file"
+              onChange={(e) => handleChange('panFile', e.target.files[0])}
+            />
+            <label htmlFor="upload-pan" style={styles.uploadLabel}>
+              <Button
+                variant="outlined"
+                component="span"
+                fullWidth
+                style={styles.uploadButton}
+                startIcon={<CloudUpload />}
+              >
+                Upload PAN File
+              </Button>
+            </label>
+            {formData.panFile && <Text>{formData.panFile.name}</Text>}
+          </View>
+        </View> 
         <View style={styles.input}>
           <TextField 
             label="UAN Number" 
@@ -312,6 +350,50 @@ const JoiningForm = () => {
             helperText={errors.ifsc ? 'Please enter your IFSC code' : ''} 
             required
           />
+        </View>
+        <View style={styles.uploadContainer100}>
+          <View style={styles.uploadContainer}>
+            <input
+              accept="image/*"
+              style={{ display: 'none' }}
+              id="upload-passBook"
+              type="file"
+              onChange={(e) => handleChange('passBook', e.target.files[0])}
+            />
+            <label htmlFor="upload-passBook" style={styles.uploadLabel}>
+              <Button
+                variant="outlined"
+                component="span"
+                fullWidth
+                style={styles.uploadButton}
+                startIcon={<CloudUpload />}
+              >
+                passBook
+              </Button>
+            </label>
+            {formData.passBook &&<Text>{formData.passBook.name}</Text>}
+          </View>
+          <View style={styles.uploadContainer}>
+            <input
+              accept="image/*"
+              style={{ display: 'none' }}
+              id="upload-chequeBook"
+              type="file"
+              onChange={(e) => handleChange('chequeBook', e.target.files[0])}
+            />
+            <label htmlFor="upload-chequeBook" style={styles.uploadLabel}>
+              <Button
+                variant="outlined"
+                component="span"
+                fullWidth
+                style={styles.uploadButton}
+                startIcon={<CloudUpload />}
+              >
+                chequeBook
+              </Button>
+            </label>
+            {formData.chequeBook && <Text>{formData.chequeBook.name}</Text>}
+          </View>
         </View>
         {formData.maritalStatus === 'married' && (
           <>
@@ -423,9 +505,18 @@ const JoiningForm = () => {
 const styles = StyleSheet.create({
   container: {
       flex: 1,
-      //backgroundColor:'#f7f4eb',
-      // borderColor:'black',
-      // borderWidth:1,
+  },
+  uploadContainer: {
+    width: '49%',
+    //alignItems: 'center',
+    paddingBottom:10,
+    paddingTop:10,
+  },
+  uploadContainer100:{
+    width: '98%',
+    margin:10,
+    flexDirection:'row',
+    justifyContent:'space-between'
   },
   title: {
       fontSize: 24,

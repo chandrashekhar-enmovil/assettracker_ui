@@ -72,6 +72,14 @@ const Appdata = () => {
         criminal:'',
         doConviction:'',
         sentence:'',
+        panFile:'',
+        aadharFile:'',
+        chequeBook:'',
+        passBook:'',
+        tenthFile:'',
+        interFile:'',
+        degreeFile:'',
+        pgFile:'',
       };
       const initialErrors = {
         firstName: false,

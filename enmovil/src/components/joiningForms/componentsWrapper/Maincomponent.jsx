@@ -1,14 +1,13 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, {useContext, useEffect, useState } from 'react';
 import Pagination from './Pagination';
 import JoiningForm from '../personaldetails/JoiningForm';
 import Education from '../education/Education';
 import Experience from '../experience/Experience';
 import { View,StyleSheet } from 'react-native';
-import AppContext, { AppProvider } from '../../AppContext/AppContext';
+import AppContext from '../../AppContext/AppContext';
 import AssignRolesForm from '../rolemapping/AssignRoleForm';
-import { Route, Router, Routes, useParams } from 'react-router-dom';
+import {useParams } from 'react-router-dom';
 import axios from 'axios';
-import Appdata from '../../AppContext/Appdata';
 import BgvCheck from '../bgvcheck/BgvCheck';
 import { useAuth } from '../../authcontext/AuthContext';
 const Maincomponent = () => {
@@ -33,7 +32,7 @@ const Maincomponent = () => {
     if (id) {
       fetchData();
     }
-  }, [id,setFormData]);
+  }, [id,formData]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const renderPage = () => {

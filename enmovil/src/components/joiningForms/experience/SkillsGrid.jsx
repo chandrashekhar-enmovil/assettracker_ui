@@ -35,16 +35,6 @@ const SkillsGrid = () => {
   useEffect(() => {
     updateFormData('skillsByCategory', selectedSkills);
   }, [selectedSkills, updateFormData]);
-
-  const handleMainCheckboxChange = (categoryName) => {
-    const updatedCategories = {
-      ...expandedCategories,
-      [categoryName]: !expandedCategories[categoryName],
-    };
-    setExpandedCategories(updatedCategories);
-    updateFormData('expandedCategories', updatedCategories);
-  };
-
   const handleSkillCheckboxChange = (categoryName, skill) => {
     const updatedSkills = {
       ...selectedSkills,
