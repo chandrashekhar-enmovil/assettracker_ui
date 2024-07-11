@@ -30,9 +30,7 @@
   // };
   // const useAuth = () => useContext(AuthContext);
   // export { AuthProvider, useAuth };
-  import React, { createContext, useContext, useState, useEffect } from 'react';
-
-// Polyfill for localStorage (if needed)
+import React, { createContext, useContext, useState, useEffect } from 'react';
 (function() {
   if (!window.localStorage) {
     window.localStorage = {
