@@ -26,7 +26,7 @@ const LoginScreen = () => {
     e.preventDefault();
     setLoading(true);
     setTimeout(() => {
-      if (email === 'admin@gmail.com' && password === 'adminpass') {
+      if (email === "admin@gmail.com" && password === "adminpass") {
         login(email, 'your_token_here','admin');
         setLoading(false);
         setSnackbarMessage('Admin Login successful!');
@@ -35,7 +35,7 @@ const LoginScreen = () => {
         setTimeout(() => {
           navigate('/app');
         }, 1000);
-      } else if (email === 'user@gmail.com' && password === 'userpass') {
+      } else if (email === "user@gmail.com" && password === "userpass") {
         login(email, 'your_token_here','user');
         setLoading(false);
         setSnackbarMessage('user Login successful!');

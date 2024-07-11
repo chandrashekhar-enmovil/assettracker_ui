@@ -68,7 +68,7 @@ const Education = () => {
               type="file"
               onChange={(e) => handleChange('tenthFile', e.target.files[0])}
             />
-            <label htmlFor="upload-tenthFile" style={styles.uploadLabel}>
+            <label htmlFor="upload-tenthFile"   >
               <Button
                 variant="outlined"
                 component="span"
@@ -133,7 +133,7 @@ const Education = () => {
               type="file"
               onChange={(e) => handleChange('interFile', e.target.files[0])}
             />
-            <label htmlFor="upload-interFile" style={styles.uploadLabel}>
+            <label htmlFor="upload-interFile"   >
               <Button
                 variant="outlined"
                 component="span"
@@ -198,7 +198,7 @@ const Education = () => {
               type="file"
               onChange={(e) => handleChange('degreeFile', e.target.files[0])}
             />
-            <label htmlFor="upload-degreeFile" style={styles.uploadLabel}>
+            <label htmlFor="upload-degreeFile"   >
               <Button
                 variant="outlined"
                 component="span"
@@ -259,7 +259,7 @@ const Education = () => {
               type="file"
               onChange={(e) => handleChange('pgFile', e.target.files[0])}
             />
-            <label htmlFor="upload-pgFile" style={styles.uploadLabel}>
+            <label htmlFor="upload-pgFile"   >
               <Button
                 variant="outlined"
                 component="span"
