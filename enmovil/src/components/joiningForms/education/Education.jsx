@@ -3,7 +3,8 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { Button, TextField } from '@mui/material';
 import Certifications from '../certification/Certifications';
 import AppContext from '../../AppContext/AppContext';
-import { CloudUpload } from '@mui/icons-material';
+import { CloudUpload, UploadFile } from '@mui/icons-material';
+import UploadIcon from '../uploadIconButton/UploadIcon';
 
 const Education = () => {
   const { formData, updateFormData,errors,setErrors} = useContext(AppContext);
@@ -61,25 +62,7 @@ const Education = () => {
             required
           />
           <View style={styles.textField25}>
-            <input
-              accept="image/*"
-              style={{ display: 'none' }}
-              id="upload-tenthFile"
-              type="file"
-              onChange={(e) => handleChange('tenthFile', e.target.files[0])}
-            />
-            <label htmlFor="upload-tenthFile"   >
-              <Button
-                variant="outlined"
-                component="span"
-                fullWidth
-                style={styles.uploadButton}
-                startIcon={<CloudUpload />}
-              >
-                Upload Aadhar File
-              </Button>
-            </label>
-            {formData.tenthFile &&<Text>{formData.tenthFile.name}</Text>}
+            <UploadIcon uploadName='tenthFile' description="ssc memo"/>
           </View>
         </View>
 
@@ -126,25 +109,7 @@ const Education = () => {
             required
           />
           <View style={styles.textField25}>
-            <input
-              accept="image/*"
-              style={{ display: 'none' }}
-              id="upload-interFile"
-              type="file"
-              onChange={(e) => handleChange('interFile', e.target.files[0])}
-            />
-            <label htmlFor="upload-interFile"   >
-              <Button
-                variant="outlined"
-                component="span"
-                fullWidth
-                style={styles.uploadButton}
-                startIcon={<CloudUpload />}
-              >
-                upload Inter certificates
-              </Button>
-            </label>
-            {formData.interFile &&<Text>{formData.interFile.name}</Text>}
+            <UploadIcon uploadName='InterFile' description="12th memo"/>
           </View>
         </View>
 
@@ -191,28 +156,9 @@ const Education = () => {
   
           />
           <View style={styles.textField25}>
-            <input
-              accept="image/*"
-              style={{ display: 'none' }}
-              id="upload-degreeFile"
-              type="file"
-              onChange={(e) => handleChange('degreeFile', e.target.files[0])}
-            />
-            <label htmlFor="upload-degreeFile"   >
-              <Button
-                variant="outlined"
-                component="span"
-                fullWidth
-                style={styles.uploadButton}
-                startIcon={<CloudUpload />}
-              >
-                upload degree certificates
-              </Button>
-            </label>
-            {formData.degreeFile &&<Text>{formData.degreeFile.name}</Text>}
+          <UploadIcon uploadName='degreeFile' description="Degree"/>
           </View>
         </View>
-
         <Text style={styles.subtitle}>POST GRADUATION</Text>
         <View style={styles.input}>
           <TextField
@@ -252,25 +198,7 @@ const Education = () => {
             helperText={errors.pgGrade ? 'Please enter your CGPA or percentage' : ''}
           />
           <View style={styles.textField25}>
-            <input
-              accept="image/*"
-              style={{ display: 'none' }}
-              id="upload-pgFile"
-              type="file"
-              onChange={(e) => handleChange('pgFile', e.target.files[0])}
-            />
-            <label htmlFor="upload-pgFile"   >
-              <Button
-                variant="outlined"
-                component="span"
-                fullWidth
-                style={styles.uploadButton}
-                startIcon={<CloudUpload />}
-              >
-                upload Pg certificates
-              </Button>
-            </label>
-            {formData.pgFile &&<Text>{formData.pgFile.name}</Text>}
+          <UploadIcon uploadName='pgFile' description="Pg memo"/>
           </View>
         </View>
         <Certifications />

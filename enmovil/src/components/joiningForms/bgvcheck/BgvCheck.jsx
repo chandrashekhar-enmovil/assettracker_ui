@@ -6,6 +6,7 @@ import DocumentUploadForm from './DocumentUploadForm';
 import validateForm from '../validateForm/ValidateForm';
 import { useAuth } from '../../authcontext/AuthContext';
 import useFormSubmitHandler from '../rolemapping/FormSubmitHandler';
+import UploadIcon from '../uploadIconButton/UploadIcon';
 const BgvCheck = () => {
     const { formData, updateFormData, errors, setFormData, initialFormData } = useContext(AppContext);
     const { user } = useAuth();
@@ -119,7 +120,17 @@ const BgvCheck = () => {
                         </Box>
                     </Paper>
                 </Container>
-                <DocumentUploadForm />
+                <br/>
+                {/* <DocumentUploadForm /> */}
+                <UploadIcon uploadName='resume' description='please upload Resume'/>
+                <br/>
+                <UploadIcon uploadName='offerLetter' description='please upload offerLetter'/>
+                <br/>
+                <UploadIcon uploadName='relievingLetter' description='please upload Resume'/>
+                <br/>
+                <UploadIcon uploadName='paySlips' description='please upload payslips'/>
+                <br/>
+                <UploadIcon uploadName='passportPhoto' description='please upload passportPhoto'/>
                 <br />
                 {user.role === 'user' && (
                     <Button type="button" variant="contained" color="primary" disabled={!isFormValid} onClick={handleSubmit}>
