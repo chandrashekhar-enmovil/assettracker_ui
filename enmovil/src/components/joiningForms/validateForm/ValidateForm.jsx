@@ -26,6 +26,7 @@ const validateForm = (formData, errors, setSnackbar) => {
             }
         }
     }
+    console.log(formData);
     return valid;
 };
 

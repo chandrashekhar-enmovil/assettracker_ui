@@ -32,7 +32,7 @@ const Maincomponent = () => {
     if (id) {
       fetchData();
     }
-  }, [id,formData]);
+  }, [id]);
 
   const [currentPage, setCurrentPage] = useState(1);
   const renderPage = () => {

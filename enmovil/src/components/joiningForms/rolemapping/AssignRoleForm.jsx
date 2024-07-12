@@ -47,7 +47,7 @@ const AssignRolesForm = () => {
 
   useEffect(() => {
     setIsFormValid(validateForm(formData, errors, setSnackbar));
-  }, [formData, errors]);
+  }, [errors]);
 
   const handleChange = (field, value) => {
     updateFormData(field, value);

@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import AppContext from '../../AppContext/AppContext';
 import { Box, Container, FormControl, InputLabel, MenuItem, Paper, Select, TextField, Typography, Snackbar, Alert, Button } from '@mui/material';
-import DocumentUploadForm from './DocumentUploadForm';
 import validateForm from '../validateForm/ValidateForm';
 import { useAuth } from '../../authcontext/AuthContext';
 import useFormSubmitHandler from '../rolemapping/FormSubmitHandler';
@@ -33,8 +32,6 @@ const BgvCheck = () => {
         const formIsValid = validateForm(formData, errors, setSnackbar);
         setIsFormValid(formIsValid);
     }, [formData, errors]);
-    
-
     const handleCloseSnackbar = () => {
         setSnackbar(prevSnackbar => ({
             ...prevSnackbar,
@@ -121,7 +118,6 @@ const BgvCheck = () => {
                     </Paper>
                 </Container>
                 <br/>
-                {/* <DocumentUploadForm /> */}
                 <UploadIcon uploadName='resume' description='please upload Resume'/>
                 <br/>
                 <UploadIcon uploadName='offerLetter' description='please upload offerLetter'/>
