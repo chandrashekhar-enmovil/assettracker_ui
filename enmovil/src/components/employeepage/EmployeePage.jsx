@@ -11,7 +11,7 @@ const EmployeePage = () => {
             <NavBar />
             <div style={styles.contentContainer}>
                 <Routes>
-                    <Route path="/" element={<PrivateRoute element={() => <EmployeeHome />} />} />
+                    <Route path="/" element={<PrivateRoute element={() => <Maincomponent />} />} />
                     <Route path="/joiningforms" element={<PrivateRoute element={() => <Maincomponent />} />} />
                     <Route path="/homepage" element={<PrivateRoute element={() => <EmployeeHome />} />} />
                     <Route path="/about" element={<PrivateRoute element={() => <EmployeeAbout/>} />} />

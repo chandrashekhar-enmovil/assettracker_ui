@@ -61,7 +61,7 @@ const Appdata = () => {
         experience: [
           { companyName: '', designation: '', department: '', tenure: '' }
         ],
-        skillsByCategory: {},
+        skillsByCategory: [],
         responsibilities: '',
         role: '',
         team: '',

@@ -5,9 +5,7 @@ import 'ag-grid-community/styles/ag-theme-alpine.css';
 import axios from 'axios';
 import {CircularProgress } from '@mui/material';
 import { Edit as EditIcon } from '@mui/icons-material';
-
 import { Link} from 'react-router-dom';
-
 function Employeee() {
     const [rowData, setRowData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -15,7 +13,7 @@ function Employeee() {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const response = await axios.post('http://216.48.185.128:3001/assetEmp/getEmployees');
+                const response = await axios.post(process.env.REACT_APP_DISPLAY_API);
                 const data = response.data.records;
                 const formattedData = data.map(item => ({
                     ID: item.empId,

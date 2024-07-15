@@ -8,6 +8,7 @@ const Input = styled('input')({
 });
 const UploadIcon = ({uploadName,description}) => {
     const { formData,setFormData } = useContext(AppContext);
+    console.log(formData);
   const handleFileChange = (event, fieldName) => {
     //console.log(fieldName,event.target.files[0]);
     setFormData({

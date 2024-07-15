@@ -5,9 +5,8 @@ const useFormSubmitHandler = ({ formData, buttonName, setSnackbarMessage, setSna
   const handleSubmit = async (e) => {
     e.preventDefault();
     let url = buttonName === 'update'
-      ? 'http://216.48.185.128:3001/assetEmp/editEmployeeDetails'
-      : 'http://216.48.185.128:3001/assetEmp/empRegister';
-
+      ? process.env.REACT_APP_UPDATE_API
+      : process.env.REACT_APP_ADD_EMPLOYEE_API
     try {
       const response = await axios.post(url, {
         firstName: formData.firstName,
@@ -85,9 +84,7 @@ const useFormSubmitHandler = ({ formData, buttonName, setSnackbarMessage, setSna
         headers: {
           'Content-Type': 'application/json',
         },
-      });
-      
-      console.log(response.data)
+      }); 
       if (response.data.status === 'success') {
         setSnackbarMessage(buttonName === 'update' ? 'Employee Data successfully updated!' : 'Employee Data successfully added!');
         setSnackbarSeverity('success');
@@ -101,6 +98,7 @@ const useFormSubmitHandler = ({ formData, buttonName, setSnackbarMessage, setSna
         setTimeout(() => {
           navigate('/');
         }, 1500);
+
       } else {
         setSnackbarMessage(response.data.message);
         setSnackbarSeverity('error');

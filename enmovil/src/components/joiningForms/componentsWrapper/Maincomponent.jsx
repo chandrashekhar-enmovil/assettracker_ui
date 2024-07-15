@@ -20,7 +20,7 @@ const Maincomponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post("http://216.48.185.128:3001/assetEmp/getEmployeeDetailsById",{"empId":id});
+        const response = await axios.post(process.env.REACT_APP_CHECK_ID_API,{"empId":id});
         const data = response.data;
         if (data.status === "success") {
           setFormData(data.employee);

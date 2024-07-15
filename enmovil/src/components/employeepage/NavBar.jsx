@@ -6,7 +6,7 @@ import { useAuth } from '../authcontext/AuthContext';
 import { StyleSheet, TouchableOpacity} from 'react-native';
 const NavBar = () => {
     const { logout } = useAuth();
-    const [activeButton, setActiveButton] = useState(1);
+    const [activeButton, setActiveButton] = useState(2);
 
     const handleButtonClick = (buttonId) => {
         setActiveButton(buttonId);

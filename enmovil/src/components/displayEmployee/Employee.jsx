@@ -72,11 +72,10 @@ const Employee = () => {
           <Text style={styles.headingText}>Employees</Text>
         </View>
         <View style={styles.buttons}>
-        {/* <ManinHeader /> */}
         <Form/>
         </View>
       </View>
-      <Employeee />
+      <Employeee/>
     </View>
   );
 }

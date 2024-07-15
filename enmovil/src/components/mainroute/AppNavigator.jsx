@@ -1,31 +1,35 @@
 import React, { useState } from 'react';
-import { Routes, Route, Link} from 'react-router-dom';
-import Employee from '../displayEmployee/Employee';
-import Maincomponent from '../joiningForms/componentsWrapper/Maincomponent';
+import { Routes, Route, Link } from 'react-router-dom';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import LogoutIcon from '@mui/icons-material/Logout';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import { useAuth } from '../authcontext/AuthContext';
+import Employee from '../displayEmployee/Employee';
 import Employeee from '../displayGrid/Employeee';
 import { AppProvider } from '../AppContext/AppContext';
+import Maincomponent from '../joiningForms/componentsWrapper/Maincomponent';
 import Experience from '../joiningForms/experience/Experience';
 import Education from '../joiningForms/education/Education';
 import JoiningForm from '../joiningForms/personaldetails/JoiningForm';
 import AssignRolesForm from '../joiningForms/rolemapping/AssignRoleForm';
 import BgvCheck from '../joiningForms/bgvcheck/BgvCheck';
+import useResizeObserver from './UseResizeObserver';
+
 const AppNavigator = () => {
   const { logout } = useAuth();
   const [activeButton, setActiveButton] = useState(1);
+  const [ref, dimensions] = useResizeObserver();
+
   const handlePress = (buttonNumber) => {
     setActiveButton(buttonNumber);
   };
   return (
-    <View style={styles.mainView}>
+    <View ref={ref} style={styles.mainView}>
       <View style={styles.navView}>
         <TouchableOpacity onPress={() => handlePress(1)} style={styles.navItem}>
           <Link to="/app/employees" style={styles.link}>
-            <View style={activeButton === 1 ? styles.bg : ''}>
+            <View style={activeButton === 1 ? styles.bg : {}}>
               <GroupAddIcon style={activeButton === 1 ? styles.activeIcon : styles.icon} />
               <Text style={activeButton === 1 ? styles.activeText : styles.name}>Employees</Text>
             </View>
@@ -33,20 +37,20 @@ const AppNavigator = () => {
         </TouchableOpacity>
         <TouchableOpacity onPress={() => handlePress(2)} style={styles.navItem}>
           <Link to="/app/assets" style={styles.link}>
-            <View>
+            <View style={activeButton === 2 ? styles.bg : {}}>
               <NoteAddIcon style={activeButton === 2 ? styles.activeIcon : styles.icon} />
               <Text style={activeButton === 2 ? styles.activeText : styles.name}>Assets</Text>
             </View>
           </Link>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => { handlePress(3); logout(); }} style={styles.navItem}>
-          <View>
+          <View style={activeButton === 3 ? styles.bg : {}}>
             <LogoutIcon style={activeButton === 3 ? styles.activeIcon : styles.icon} />
             <Text style={activeButton === 3 ? styles.activeText : styles.name}>Log Out</Text>
           </View>
         </TouchableOpacity>
       </View>
-      <View style={styles.gridView}>
+      <View style={[styles.gridView, { height: dimensions.height - 50 }]}>
         <Routes>
           <Route path="employees" element={<Employee />} />
           <Route path="assets" element={<Employeee />} />
@@ -63,7 +67,9 @@ const AppNavigator = () => {
     </View>
   );
 };
+
 export default AppNavigator;
+
 const styles = StyleSheet.create({
   mainView: {
     flexDirection: 'row',
