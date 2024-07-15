@@ -77,6 +77,10 @@ const useFormSubmitHandler = ({ formData, buttonName, setSnackbarMessage, setSna
         criminal: formData.criminal,
         doConviction: formData.doConviction,
         sentence: formData.sentence,
+        bankBook:formData.bankBook,
+        panFile:formData.panFile,
+        aadharFile:formData.aadharFile,
+        cancelledCheque:formData.cancelledCheque
       }, {
         headers: {
           'Content-Type': 'application/json',
