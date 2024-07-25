@@ -50,12 +50,12 @@ const AppNavigator = () => {
           </View>
         </TouchableOpacity>
       </View>
-      <View style={[styles.gridView, { height: dimensions.height - 50 }]}>
+      <View style={[styles.gridView, { height: dimensions.height - 10 }]}>
         <Routes>
           <Route path="employees" element={<Employee />} />
           <Route path="assets" element={<Employeee />} />
           <Route path="joiningforms" element={<AppProvider><Maincomponent /></AppProvider>} />
-          <Route path="*" element={<Employee />} />
+          <Route path="*" element={<Employee/>} />
           <Route path="/editform/:id" element={<AppProvider><Maincomponent /></AppProvider>} />
           <Route path="/joiningform" element={<AppProvider><JoiningForm /></AppProvider>} />
           <Route path="/education" element={<AppProvider><Education /></AppProvider>} />
